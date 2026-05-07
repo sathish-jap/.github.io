@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Training — Kogniva.ai</title>
+  <meta name="description" content="Hands-on AI training for individuals and corporate teams. Live sessions, weekend cohorts, and custom B2B workshops." />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* ── Tabs ── */
+    .tabs { display: flex; gap: 4px; background: var(--slate-100); border-radius: var(--radius); padding: 4px; max-width: fit-content; margin-bottom: 48px; }
+    .tab-btn {
+      padding: 10px 24px; border-radius: 9px; border: none;
+      font-size: .9rem; font-weight: 600; cursor: pointer;
+      background: transparent; color: var(--slate-500);
+      transition: all .2s;
+    }
+    .tab-btn.active { background: var(--white); color: var(--blue); box-shadow: var(--shadow-sm); }
+
+    /* ── Track section ── */
+    .track-section { display: none; }
+    .track-section.active { display: block; }
+
+    /* ── Format cards ── */
+    .format-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-bottom: 48px; }
+    .format-card {
+      background: var(--white); border: 1.5px solid var(--slate-100);
+      border-radius: var(--radius-lg); padding: 28px;
+      box-shadow: var(--shadow-sm); transition: transform .2s, box-shadow .2s;
+    }
+    .format-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+    .format-card-header { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
+    .format-num {
+      width: 36px; height: 36px; border-radius: var(--radius);
+      background: var(--blue); color: var(--white);
+      display: flex; align-items: center; justify-content: center;
+      font-size: .85rem; font-weight: 700; font-family: var(--font-display);
+      flex-shrink: 0;
+    }
+    .format-card h3 { font-family: var(--font-display); font-size: 1rem; font-weight: 600; color: var(--slate-900); }
+    .format-card p { font-size: .88rem; color: var(--slate-500); line-height: 1.65; margin-bottom: 14px; }
+    .format-meta { display: flex; gap: 8px; flex-wrap: wrap; }
+
+    /* ── Topics ── */
+    .topics-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 48px; }
+    .topic-item {
+      display: flex; gap: 12px; align-items: flex-start;
+      padding: 16px; background: var(--blue-light);
+      border: 1px solid var(--blue-mid); border-radius: var(--radius);
+    }
+    .topic-badge {
+      font-size: .7rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: .08em; color: var(--blue);
+      white-space: nowrap; padding-top: 2px;
+    }
+    .topic-item h4 { font-size: .9rem; font-weight: 600; color: var(--slate-900); margin-bottom: 3px; }
+    .topic-item p { font-size: .82rem; color: var(--slate-500); line-height: 1.5; }
+
+    /* ── Pricing ── */
+    .pricing-banner {
+      background: var(--slate-50); border: 1.5px solid var(--slate-100);
+      border-radius: var(--radius-lg); padding: 32px;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 24px; flex-wrap: wrap; margin-bottom: 48px;
+    }
+    .pricing-text h3 { font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; color: var(--slate-900); margin-bottom: 4px; }
+    .pricing-text p { font-size: .9rem; color: var(--slate-500); }
+    .pricing-amount {
+      font-family: var(--font-display);
+      font-size: 2rem; font-weight: 700; color: var(--blue);
+      white-space: nowrap;
+    }
+    .pricing-amount span { font-size: 1rem; font-weight: 400; color: var(--slate-400); }
+
+    /* ── B2B specifics ── */
+    .b2b-features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 48px; }
+    .b2b-feature {
+      text-align: center; padding: 24px 16px;
+      background: var(--white); border: 1.5px solid var(--slate-100);
+      border-radius: var(--radius); box-shadow: var(--shadow-sm);
+    }
+    .b2b-feature .icon { font-size: 1.8rem; margin-bottom: 10px; }
+    .b2b-feature h4 { font-size: .9rem; font-weight: 600; color: var(--slate-900); margin-bottom: 6px; }
+    .b2b-feature p { font-size: .82rem; color: var(--slate-500); line-height: 1.5; }
+
+    /* ── Guarantee ── */
+    .guarantee-bar {
+      background: var(--green-bg); border: 1.5px solid var(--green-border);
+      border-radius: var(--radius-lg); padding: 24px 32px;
+      display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
+      margin-bottom: 48px;
+    }
+    .guarantee-bar .g-icon { font-size: 2rem; }
+    .guarantee-bar h4 { font-family: var(--font-display); font-size: 1rem; font-weight: 700; color: var(--slate-900); margin-bottom: 3px; }
+    .guarantee-bar p { font-size: .88rem; color: var(--slate-500); }
+
+    @media (max-width: 640px) {
+      .format-grid, .topics-grid, .b2b-features { grid-template-columns: 1fr; }
+      .pricing-banner { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Kogniva<span>.ai</span></a>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="training.html" class="active">Training</a>
+        <a href="consulting.html">Consulting</a>
+        <a href="about.html">About</a>
+        <a href="contact.html" class="nav-cta">Get in Touch</a>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow page-hero-eyebrow">Training</span>
+      <h1>Hands-on AI training.<br><em>Not another webinar.</em></h1>
+      <p>Live sessions and cohorts built for professionals who are done passively watching and ready to actually build. Two tracks: one for individuals, one for teams.</p>
+      <div class="page-hero-ctas">
+        <a href="https://forms.gle/TeBTQEZjVdeLxhaQ9" class="btn-primary" target="_blank">📋 Register for a Session</a>
+        <a href="https://wa.me/971585821482?text=Hello%20Sathish%2C%20I%27d%20like%20to%20discuss%20training" class="btn-whatsapp" target="_blank">💬 WhatsApp Sathish</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- TRACK SELECTOR -->
+  <section>
+    <div class="container">
+      <div class="tabs">
+        <button class="tab-btn active" data-tab="b2c" id="tabB2C">👤 Individual Training (B2C)</button>
+        <button class="tab-btn" data-tab="b2b" id="tabB2B">🏢 Corporate Training (B2B)</button>
+      </div>
+
+      <!-- B2C -->
+      <div class="track-section active" id="b2c">
+        <span class="eyebrow">Individual Track</span>
+        <h2 class="section-title">For professionals who want to learn by doing</h2>
+        <p class="section-sub">
+          Designed for IT professionals, tech leads, managers, and non-technical leaders from healthcare, finance, legal, and education. Sessions are live, online, and small by design.
+        </p>
+
+        <div class="format-grid">
+          <div class="format-card reveal">
+            <div class="format-card-header">
+              <div class="format-num">45<span style="font-size:.6rem">m</span></div>
+              <h3>Live Session</h3>
+            </div>
+            <p>A focused single session on one AI topic — concept, live demo, and a short hands-on exercise. Ideal if you want to test the format before committing to a cohort.</p>
+            <div class="format-meta">
+              <span class="pill pill-blue">Online · Google Meet</span>
+              <span class="pill pill-green">~45 minutes</span>
+              <span class="pill pill-amber">Recording shared</span>
+            </div>
+          </div>
+
+          <div class="format-card reveal">
+            <div class="format-card-header">
+              <div class="format-num">2<span style="font-size:.6rem">d</span></div>
+              <h3>Weekend Cohort</h3>
+            </div>
+            <p>Two days, two hours each. A structured deep-dive where you go from concept to a working prototype. Small group of 5 — high engagement, direct access to Sathish.</p>
+            <div class="format-meta">
+              <span class="pill pill-blue">Sat + Sun · 10 AM–12 PM UAE</span>
+              <span class="pill pill-green">4 hrs total</span>
+              <span class="pill pill-amber">Max 5 seats</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="pricing-banner reveal">
+          <div class="pricing-text">
+            <h3>Weekend Cohort</h3>
+            <p>Includes both days, recordings, and a PDF takeaway. Full refund if unsatisfied after Day 1.</p>
+          </div>
+          <div class="pricing-amount">AED 200 <span>per cohort</span></div>
+          <a href="https://forms.gle/TeBTQEZjVdeLxhaQ9" class="btn-primary" target="_blank">📋 Register Now</a>
+        </div>
+
+        <div class="guarantee-bar reveal">
+          <div class="g-icon">🛡</div>
+          <div>
+            <h4>100% Risk-Free Guarantee</h4>
+            <p>If Day 1 doesn't meet your expectations, request a full refund — no questions asked, no friction.</p>
+          </div>
+        </div>
+
+        <span class="eyebrow">Training Topics</span>
+        <h2 class="section-title" style="margin-bottom:12px;">What you can learn</h2>
+        <p class="section-sub">Topics vary by session. Current focus areas below. More tracks in development.</p>
+        <div class="topics-grid">
+          <div class="topic-item reveal">
+            <div class="topic-badge">Primary</div>
+            <div>
+              <h4>AI Agents &amp; Agentic Systems</h4>
+              <p>Understanding how autonomous AI agents work, how to design them, and where they fit in real workflows.</p>
+            </div>
+          </div>
+          <div class="topic-item reveal">
+            <div class="topic-badge">Primary</div>
+            <div>
+              <h4>AI-Assisted Software Development</h4>
+              <p>Building and shipping real apps using Claude Code. Aimed at tech leads, managers, and non-coders who want to prototype.</p>
+            </div>
+          </div>
+          <div class="topic-item reveal">
+            <div class="topic-badge">Secondary</div>
+            <div>
+              <h4>Foundational AI Literacy</h4>
+              <p>How LLMs work, prompt engineering, and how to evaluate AI tools — for professionals new to the space.</p>
+            </div>
+          </div>
+          <div class="topic-item reveal">
+            <div class="topic-badge">Secondary</div>
+            <div>
+              <h4>Anthropic Ecosystem &amp; Claude</h4>
+              <p>Deep dives into Claude's capabilities, Claude Code, and the Anthropic toolchain for developers and power users.</p>
+            </div>
+          </div>
+        </div>
+
+        <div style="text-align:center;padding:24px 0;">
+          <p style="color:var(--slate-500);font-size:.95rem;margin-bottom:16px;">Not sure which session is right for you? Ask directly.</p>
+          <a href="https://wa.me/971585821482?text=Hello%20Sathish%2C%20I%27d%20like%20help%20choosing%20the%20right%20training%20session" class="btn-whatsapp" target="_blank">💬 Ask Sathish on WhatsApp</a>
+        </div>
+      </div>
+
+      <!-- B2B -->
+      <div class="track-section" id="b2b">
+        <span class="eyebrow">Corporate Track</span>
+        <h2 class="section-title">AI training built around your team</h2>
+        <p class="section-sub">
+          Custom workshops for organisations in IT, healthcare, finance, legal, and education. Designed to match your team's current AI maturity and your organisation's goals.
+        </p>
+
+        <div class="b2b-features">
+          <div class="b2b-feature reveal">
+            <div class="icon">🎯</div>
+            <h4>Custom scoped</h4>
+            <p>Topics, depth, and exercises designed around your team's role and your industry context.</p>
+          </div>
+          <div class="b2b-feature reveal">
+            <div class="icon">👥</div>
+            <h4>Groups from 5 to 50</h4>
+            <p>Small team sprint or a full-organisation rollout — both work. Format adapts accordingly.</p>
+          </div>
+          <div class="b2b-feature reveal">
+            <div class="icon">🏭</div>
+            <h4>Industry-aware</h4>
+            <p>Examples, tools, and compliance considerations drawn from your sector — not generic use cases.</p>
+          </div>
+          <div class="b2b-feature reveal">
+            <div class="icon">📦</div>
+            <h4>Full takeaway pack</h4>
+            <p>Session recordings, PDF resource packs, and exercises that teams can continue practising post-session.</p>
+          </div>
+          <div class="b2b-feature reveal">
+            <div class="icon">📅</div>
+            <h4>Flexible scheduling</h4>
+            <p>Weekday or weekend delivery, live on Google Meet. Designed around your team's availability.</p>
+          </div>
+          <div class="b2b-feature reveal">
+            <div class="icon">📈</div>
+            <h4>Adoption-focused outcomes</h4>
+            <p>Sessions end with practical next steps your team can implement — not just slides to file away.</p>
+          </div>
+        </div>
+
+        <div class="pricing-banner reveal">
+          <div class="pricing-text">
+            <h3>Corporate Workshops</h3>
+            <p>Pricing is based on team size, session length, and customisation required. Enquire for a scoped proposal.</p>
+          </div>
+          <div class="pricing-amount" style="font-size:1.4rem;color:var(--slate-700);">Pricing on request</div>
+          <a href="https://wa.me/971585821482?text=Hello%20Sathish%2C%20I%27m%20interested%20in%20corporate%20AI%20training%20for%20my%20team" class="btn-primary" target="_blank">💬 Enquire Now</a>
+        </div>
+
+        <div style="text-align:center;padding:16px 0;">
+          <p style="color:var(--slate-500);font-size:.9rem;margin-bottom:4px;">Prefer a quick conversation first?</p>
+          <a href="https://wa.me/971585821482?text=Hello%20Sathish%2C%20I%27d%20like%20to%20discuss%20a%20corporate%20AI%20workshop%20for%20my%20team" class="btn-whatsapp" target="_blank" style="margin-top:12px;display:inline-flex;">💬 WhatsApp Sathish directly</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-strip">
+    <div class="container">
+      <h2>Not sure which format fits?</h2>
+      <p>A quick WhatsApp message is the fastest way to find out. No sales process — just a direct answer.</p>
+      <div class="cta-strip-btns">
+        <a href="https://wa.me/971585821482?text=Hello%20Sathish%2C%20I%27d%20like%20to%20find%20the%20right%20training%20for%20me" class="btn-white" target="_blank">💬 Message Sathish</a>
+        <a href="https://forms.gle/TeBTQEZjVdeLxhaQ9" class="btn-wa-white" target="_blank">📋 Register for Next Session</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="logo">Kogniva<span>.ai</span></div>
+          <p>Practical AI adoption training and consulting for IT professionals and business leaders — built for people who want to act, not just learn.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <a href="training.html#b2c">Individual Training</a>
+          <a href="training.html#b2b">Corporate Workshops</a>
+          <a href="consulting.html">AI Consulting</a>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <a href="about.html">About Sathish</a>
+          <a href="https://www.linkedin.com/in/sathish-genai-consultant" target="_blank">LinkedIn</a>
+          <a href="https://wa.me/971585821482" target="_blank">WhatsApp</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Kogniva.ai · Dubai, UAE</span>
+        <span>Built for professionals who build.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('navToggle').addEventListener('click', () => {
+      document.getElementById('navLinks').classList.toggle('open');
+    });
+
+    // Hash-based tab routing
+    function activateTab(tabId) {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.track-section').forEach(s => s.classList.remove('active'));
+      const btn = document.querySelector(`[data-tab="${tabId}"]`);
+      const section = document.getElementById(tabId);
+      if (btn && section) { btn.classList.add('active'); section.classList.add('active'); }
+    }
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        activateTab(btn.dataset.tab);
+        history.pushState(null, '', '#' + btn.dataset.tab);
+      });
+    });
+    const hash = window.location.hash.replace('#', '');
+    if (hash === 'b2c' || hash === 'b2b') activateTab(hash);
+
+    // Reveal
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }});
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>

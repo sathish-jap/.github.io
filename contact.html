@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Kogniva.ai</title>
+  <meta name="description" content="Get in touch with Sathish at Kogniva.ai — for individual training, corporate workshops, or AI adoption consulting." />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+
+    .contact-channel {
+      background: var(--white); border: 1.5px solid var(--slate-100);
+      border-radius: var(--radius-lg); padding: 36px;
+      box-shadow: var(--shadow-sm); text-align: center;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .contact-channel:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+    .contact-channel.primary { border-color: var(--blue-mid); background: var(--blue-light); }
+    .channel-icon { font-size: 2.5rem; margin-bottom: 16px; }
+    .contact-channel h3 {
+      font-family: var(--font-display);
+      font-size: 1.1rem; font-weight: 600;
+      color: var(--slate-900); margin-bottom: 8px;
+    }
+    .contact-channel p { font-size: .9rem; color: var(--slate-500); line-height: 1.65; margin-bottom: 20px; }
+    .channel-note { font-size: .8rem; color: var(--slate-400); margin-top: 12px; }
+
+    .what-to-say {
+      background: var(--slate-50); border: 1.5px solid var(--slate-100);
+      border-radius: var(--radius-lg); padding: 32px;
+    }
+    .what-to-say h3 { font-family: var(--font-display); font-size: 1.05rem; font-weight: 600; color: var(--slate-900); margin-bottom: 16px; }
+    .message-option {
+      display: block; width: 100%;
+      text-align: left; padding: 14px 16px;
+      background: var(--white); border: 1.5px solid var(--slate-100);
+      border-radius: var(--radius); font-size: .88rem;
+      color: var(--slate-700); text-decoration: none;
+      cursor: pointer; margin-bottom: 10px;
+      transition: border-color .2s, background .2s;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .message-option:hover { border-color: #25d366; background: #f0fdf4; }
+    .message-option .mo-label { font-weight: 600; color: var(--slate-900); display: block; }
+    .message-option .mo-desc { font-size: .8rem; color: var(--slate-500); display: block; margin-top: 2px; }
+
+    .info-strip {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+      margin-top: 60px;
+    }
+    .info-item {
+      text-align: center; padding: 24px;
+      background: var(--white); border: 1.5px solid var(--slate-100);
+      border-radius: var(--radius);
+    }
+    .info-item .ii-icon { font-size: 1.5rem; margin-bottom: 8px; }
+    .info-item h4 { font-size: .85rem; font-weight: 600; color: var(--slate-900); margin-bottom: 4px; }
+    .info-item p { font-size: .82rem; color: var(--slate-500); }
+
+    @media (max-width: 640px) {
+      .contact-grid { grid-template-columns: 1fr; }
+      .info-strip { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Kogniva<span>.ai</span></a>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="training.html">Training</a>
+        <a href="consulting.html">Consulting</a>
+        <a href="about.html">About</a>
+        <a href="contact.html" class="active nav-cta">Get in Touch</a>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow page-hero-eyebrow">Get in Touch</span>
+      <h1>Let's talk about<br><em>what you're trying to do.</em></h1>
+      <p>Whether it's a specific session, a corporate workshop enquiry, or a consulting conversation — WhatsApp is the fastest way to get a real answer.</p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- CONTACT CHANNELS -->
+  <section>
+    <div class="container">
+      <div class="contact-grid">
+
+        <div>
+          <div class="contact-channel primary reveal" style="margin-bottom:20px;">
+            <div class="channel-icon">💬</div>
+            <h3>WhatsApp — fastest response</h3>
+            <p>Message Sathish directly. Most enquiries get a response within a few hours during UAE business hours.</p>
+            <a href="https://wa.me/971585821482?text=Hello%20Sathish%2C%20I%27d%20like%20to%20learn%20more%20about%20Kogniva" class="btn-whatsapp" target="_blank" style="display:inline-flex;margin:0 auto;">
+              💬 Message on WhatsApp
+            </a>
+            <p class="channel-note">+971 58 582 1482 · Dubai, UAE (GMT+4)</p>
+          </div>
+
+          <div class="contact-channel reveal">
+            <div class="channel-icon">📋</div>
+            <h3>Registration Form</h3>
+            <p>Ready to book a seat for the next session? Fill out the registration form and you'll hear back with confirmation and pre-session instructions.</p>
+            <a href="https://forms.gle/TeBTQEZjVdeLxhaQ9" class="btn-primary" target="_blank" style="display:inline-flex;margin:0 auto;">
+              📋 Open Registration Form
+            </a>
+            <p class="channel-note">For upcoming cohorts and live sessions</p>
+          </div>
+        </div>
+
+        <div class="what-to-say reveal">
+          <h3>Not sure what to say? Pick one:</h3>
+          <a href="https://wa.me/971585821482?text=Hello%20Sathish%2C%20I%27m%20interested%20in%20joining%20an%20upcoming%20session.%20Can%20you%20share%20what%27s%20coming%20up%3F" class="message-option" target="_blank">
+            <span>📅</span>
+            <span>
+              <span class="mo-label">I want to join a session</span>
+              <span class="mo-desc">Ask about upcoming cohorts and availability</span>
+            </span>
+          </a>
+          <a href="https://wa.me/971585821482?text=Hello%20Sathish%2C%20I%27m%20interested%20in%20a%20corporate%20AI%20training%20workshop%20for%20my%20team.%20Can%20we%20discuss%3F" class="message-option" target="_blank">
+            <span>🏢</span>
+            <span>
+              <span class="mo-label">I want to train my team</span>
+              <span class="mo-desc">Enquire about corporate workshops and B2B pricing</span>
+            </span>
+          </a>
+          <a href="https://wa.me/971585821482?text=Hello%20Sathish%2C%20I%27m%20interested%20in%20AI%20adoption%20consulting%20for%20my%20organisation.%20Can%20we%20have%20a%20discovery%20call%3F" class="message-option" target="_blank">
+            <span>📈</span>
+            <span>
+              <span class="mo-label">I need consulting support</span>
+              <span class="mo-desc">Discuss an AI adoption strategy for your organisation</span>
+            </span>
+          </a>
+          <a href="https://wa.me/971585821482?text=Hello%20Sathish%2C%20I%27m%20not%20sure%20which%20Kogniva%20service%20is%20right%20for%20me.%20Can%20you%20help%3F" class="message-option" target="_blank">
+            <span>🤔</span>
+            <span>
+              <span class="mo-label">I'm not sure what I need</span>
+              <span class="mo-desc">Let's figure out the right fit together</span>
+            </span>
+          </a>
+
+          <div style="margin-top:20px;padding-top:20px;border-top:1px solid var(--slate-100);">
+            <p style="font-size:.82rem;color:var(--slate-400);">Prefer LinkedIn?</p>
+            <a href="https://www.linkedin.com/in/sathish-genai-consultant" class="btn-ghost" target="_blank" style="margin-top:8px;display:inline-flex;font-size:.85rem;padding:9px 16px;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="#2563eb"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+              Connect on LinkedIn
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="info-strip">
+        <div class="info-item reveal">
+          <div class="ii-icon">🌍</div>
+          <h4>Based in Dubai, UAE</h4>
+          <p>GMT+4 · Available for online sessions globally</p>
+        </div>
+        <div class="info-item reveal">
+          <div class="ii-icon">⏱</div>
+          <h4>Response time</h4>
+          <p>Usually within a few hours on WhatsApp during UAE business hours</p>
+        </div>
+        <div class="info-item reveal">
+          <div class="ii-icon">🌐</div>
+          <h4>Geographic reach</h4>
+          <p>UAE · India · Australia · Singapore — and anywhere online</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="logo">Kogniva<span>.ai</span></div>
+          <p>Practical AI adoption training and consulting for IT professionals and business leaders — built for people who want to act, not just learn.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <a href="training.html#b2c">Individual Training</a>
+          <a href="training.html#b2b">Corporate Workshops</a>
+          <a href="consulting.html">AI Consulting</a>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <a href="about.html">About Sathish</a>
+          <a href="https://www.linkedin.com/in/sathish-genai-consultant" target="_blank">LinkedIn</a>
+          <a href="https://wa.me/971585821482" target="_blank">WhatsApp</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Kogniva.ai · Dubai, UAE</span>
+        <span>Built for professionals who build.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('navToggle').addEventListener('click', () => document.getElementById('navLinks').classList.toggle('open'));
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }});
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>

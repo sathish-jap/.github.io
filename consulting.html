@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Adoption Consulting — Kogniva.ai</title>
+  <meta name="description" content="AI adoption consulting for organisations — workflow analysis, team upskilling strategy, and AI roadmaps across healthcare, finance, legal, and education." />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .industries-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 60px; }
+    .industry-card {
+      text-align: center; padding: 28px 16px;
+      background: var(--white); border: 1.5px solid var(--slate-100);
+      border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);
+      transition: transform .2s, box-shadow .2s, border-color .2s;
+    }
+    .industry-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: var(--blue-mid); }
+    .industry-icon { font-size: 2.2rem; margin-bottom: 12px; }
+    .industry-card h3 { font-family: var(--font-display); font-size: .95rem; font-weight: 600; color: var(--slate-900); margin-bottom: 8px; }
+    .industry-card p { font-size: .82rem; color: var(--slate-500); line-height: 1.55; }
+
+    .process-steps { display: flex; flex-direction: column; gap: 0; max-width: 720px; }
+    .process-step { display: flex; gap: 24px; align-items: flex-start; }
+    .step-spine { display: flex; flex-direction: column; align-items: center; }
+    .step-num {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: var(--blue); color: var(--white);
+      display: flex; align-items: center; justify-content: center;
+      font-size: .85rem; font-weight: 700;
+      font-family: var(--font-display); flex-shrink: 0;
+    }
+    .step-line { width: 2px; flex: 1; background: var(--blue-mid); min-height: 36px; margin: 4px 0; }
+    .process-step:last-child .step-line { display: none; }
+    .step-content { padding-bottom: 32px; }
+    .step-content h4 { font-family: var(--font-display); font-size: 1rem; font-weight: 600; color: var(--slate-900); margin-bottom: 6px; margin-top: 8px; }
+    .step-content p { font-size: .88rem; color: var(--slate-500); line-height: 1.65; }
+
+    .outcomes-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 48px; }
+    .outcome-card {
+      display: flex; gap: 14px; align-items: flex-start;
+      padding: 20px; background: var(--blue-light);
+      border: 1px solid var(--blue-mid); border-radius: var(--radius);
+    }
+    .outcome-icon { font-size: 1.4rem; flex-shrink: 0; }
+    .outcome-card h4 { font-size: .92rem; font-weight: 600; color: var(--slate-900); margin-bottom: 4px; }
+    .outcome-card p { font-size: .84rem; color: var(--slate-600); line-height: 1.55; }
+
+    @media (max-width: 900px) { .industries-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 640px) { .outcomes-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Kogniva<span>.ai</span></a>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="training.html">Training</a>
+        <a href="consulting.html" class="active">Consulting</a>
+        <a href="about.html">About</a>
+        <a href="contact.html" class="nav-cta">Get in Touch</a>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow page-hero-eyebrow">AI Adoption Consulting</span>
+      <h1>Build an AI strategy your<br><em>team will actually use.</em></h1>
+      <p>Not a slide deck about AI trends. A practical engagement that maps your workflows, identifies real adoption opportunities, and builds the internal capability to sustain them.</p>
+      <div class="page-hero-ctas">
+        <a href="https://wa.me/971585821482?text=Hello%20Sathish%2C%20I%27m%20interested%20in%20AI%20adoption%20consulting%20for%20my%20organisation" class="btn-whatsapp" target="_blank">💬 Discuss Your Organisation</a>
+        <a href="contact.html" class="btn-ghost">Send an Enquiry →</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- WHAT IT IS -->
+  <section>
+    <div class="container">
+      <span class="eyebrow">What consulting looks like</span>
+      <h2 class="section-title">Team upskilling strategy — built for your context</h2>
+      <p class="section-sub">Every organisation is at a different point on the AI adoption curve. The engagement starts by understanding where yours is — and what it will take to move forward.</p>
+
+      <div class="outcomes-grid">
+        <div class="outcome-card reveal">
+          <div class="outcome-icon">🗺</div>
+          <div>
+            <h4>AI Readiness Assessment</h4>
+            <p>Understanding your team's current AI awareness, the tools already in use, and the gaps that need addressing before any training or rollout.</p>
+          </div>
+        </div>
+        <div class="outcome-card reveal">
+          <div class="outcome-icon">⚙️</div>
+          <div>
+            <h4>Workflow Identification</h4>
+            <p>Mapping which processes in your organisation are genuinely good candidates for AI augmentation — and which ones aren't (yet).</p>
+          </div>
+        </div>
+        <div class="outcome-card reveal">
+          <div class="outcome-icon">📋</div>
+          <div>
+            <h4>Team Upskilling Strategy</h4>
+            <p>A structured plan to build AI capability in your teams — who needs to learn what, in what sequence, and at what depth.</p>
+          </div>
+        </div>
+        <div class="outcome-card reveal">
+          <div class="outcome-icon">🎓</div>
+          <div>
+            <h4>Training Delivery</h4>
+            <p>Where appropriate, consulting engagements include live training sessions designed around the specific workflows and roles identified.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INDUSTRIES -->
+  <section style="background:var(--slate-50);">
+    <div class="container">
+      <span class="eyebrow">Industries</span>
+      <h2 class="section-title">Built for knowledge-worker organisations</h2>
+      <p class="section-sub">AI adoption looks different in a hospital vs a law firm vs a software company. The consulting is designed to reflect that.</p>
+      <div class="industries-grid">
+        <div class="industry-card reveal">
+          <div class="industry-icon">💻</div>
+          <h3>IT &amp; Technology</h3>
+          <p>Engineering teams, delivery managers, and IT leaders driving AI-native workflows and toolchain changes.</p>
+        </div>
+        <div class="industry-card reveal">
+          <div class="industry-icon">🏥</div>
+          <h3>Healthcare</h3>
+          <p>Admin-heavy workflows, documentation, and decision support — identifying where AI can reduce burden without introducing risk.</p>
+        </div>
+        <div class="industry-card reveal">
+          <div class="industry-icon">🏦</div>
+          <h3>Finance</h3>
+          <p>Reporting, analysis, compliance documentation — structured processes where AI-assisted workflows can deliver real time savings.</p>
+        </div>
+        <div class="industry-card reveal">
+          <div class="industry-icon">⚖️</div>
+          <h3>Legal &amp; Education</h3>
+          <p>Research, drafting, content creation, and knowledge management — sectors with high document volume and strong AI fit.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section>
+    <div class="container">
+      <span class="eyebrow">How it works</span>
+      <h2 class="section-title">A straightforward process</h2>
+      <p class="section-sub" style="margin-bottom:40px;">No lengthy procurement. No generic frameworks delivered off the shelf.</p>
+      <div class="process-steps">
+        <div class="process-step reveal">
+          <div class="step-spine"><div class="step-num">1</div><div class="step-line"></div></div>
+          <div class="step-content">
+            <h4>Discovery Call</h4>
+            <p>A focused conversation to understand your team's size, current AI maturity, industry context, and what you're actually trying to achieve. This shapes everything that follows.</p>
+          </div>
+        </div>
+        <div class="process-step reveal">
+          <div class="step-spine"><div class="step-num">2</div><div class="step-line"></div></div>
+          <div class="step-content">
+            <h4>Workflow &amp; Readiness Review</h4>
+            <p>A structured review of your key workflows to identify where AI adoption makes real sense — based on volume, complexity, and your team's capability to sustain it.</p>
+          </div>
+        </div>
+        <div class="process-step reveal">
+          <div class="step-spine"><div class="step-num">3</div><div class="step-line"></div></div>
+          <div class="step-content">
+            <h4>Upskilling Strategy &amp; Roadmap</h4>
+            <p>A practical adoption plan: who needs to be trained, what tools to adopt, in what sequence, and how to measure progress. Delivered as a working document your team can act on.</p>
+          </div>
+        </div>
+        <div class="process-step reveal">
+          <div class="step-spine"><div class="step-num">4</div><div class="step-line"></div></div>
+          <div class="step-content">
+            <h4>Training Delivery (Optional)</h4>
+            <p>If the strategy calls for it, custom training sessions are delivered for your team — live, online, with hands-on components tailored to your actual workflows and tools.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-strip">
+    <div class="container">
+      <h2>Let's talk about your organisation.</h2>
+      <p>A quick conversation is the fastest way to understand whether this engagement is the right fit.</p>
+      <div class="cta-strip-btns">
+        <a href="https://wa.me/971585821482?text=Hello%20Sathish%2C%20I%27m%20interested%20in%20AI%20adoption%20consulting%20for%20my%20organisation" class="btn-white" target="_blank">💬 WhatsApp Sathish</a>
+        <a href="contact.html" class="btn-wa-white">Send an Enquiry →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="logo">Kogniva<span>.ai</span></div>
+          <p>Practical AI adoption training and consulting for IT professionals and business leaders — built for people who want to act, not just learn.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <a href="training.html#b2c">Individual Training</a>
+          <a href="training.html#b2b">Corporate Workshops</a>
+          <a href="consulting.html">AI Consulting</a>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <a href="about.html">About Sathish</a>
+          <a href="https://www.linkedin.com/in/sathish-genai-consultant" target="_blank">LinkedIn</a>
+          <a href="https://wa.me/971585821482" target="_blank">WhatsApp</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Kogniva.ai · Dubai, UAE</span>
+        <span>Built for professionals who build.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('navToggle').addEventListener('click', () => document.getElementById('navLinks').classList.toggle('open'));
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }});
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
