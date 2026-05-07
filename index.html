@@ -248,7 +248,7 @@
       </div>
 
       <h1>You learn AI by <span class="accent">building</span> with it.<br>Let's build something <span class="accent">real</span>.</h1>
-      <p class="hero-sub-heading">From awareness to adoption — practical AI training for professionals who want to move fast.</p>
+      <p class="hero-sub-heading">From awareness to adoption — practical AI adoption for professionals who want to move fast.</p>
 
       <p class="hero-desc">
         Most AI training tells you what's possible. Kogniva shows you how to do it — through hands-on sessions, live demos, and real builds that fit your actual workflow.
@@ -257,7 +257,7 @@
       <div class="hero-ctas">
         <a href="training.html" class="btn-primary">📚 Explore Training</a>
         <a href="https://wa.me/971585821482?text=Hello%20Sathish%2C%20I%27d%20like%20to%20learn%20more%20about%20Kogniva" class="btn-whatsapp" target="_blank">💬 WhatsApp Sathish</a>
-        <a href="consulting.html" class="btn-ghost">AI Consulting →</a>
+        <a href="#services" class="btn-ghost">Our Services →</a>
       </div>
 
       <div class="hero-stats">
@@ -268,10 +268,6 @@
         <div class="stat-item">
           <div class="stat-num">3</div>
           <div class="stat-label">Service tracks: B2C, B2B, Consulting</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-num">100%</div>
-          <div class="stat-label">Hands-on — no passive slide decks</div>
         </div>
         <div class="stat-item">
           <div class="stat-num">4</div>
@@ -297,6 +293,7 @@
             </svg>
           </div>
           <h3>Individual Training (B2C)</h3>
+          <p style="font-size:.78rem;font-weight:600;color:var(--blue);margin-bottom:8px;">For professionals learning on their own</p>
           <p>Live 45-minute sessions and weekend cohorts for IT and non-tech professionals. Priced per session. Online via Google Meet.</p>
           <span class="service-link">See sessions</span>
         </a>
@@ -308,6 +305,7 @@
             </svg>
           </div>
           <h3>Corporate Training (B2B)</h3>
+          <p style="font-size:.78rem;font-weight:600;color:var(--blue);margin-bottom:8px;">For teams of 5–50</p>
           <p>Custom AI workshops for teams — structured around your industry, your tools, and your people. For groups from 5 to 50.</p>
           <span class="service-link">Learn more</span>
         </a>
@@ -319,6 +317,7 @@
             </svg>
           </div>
           <h3>AI Adoption Consulting</h3>
+          <p style="font-size:.78rem;font-weight:600;color:var(--blue);margin-bottom:8px;">For organisations building an AI strategy</p>
           <p>Helping organisations build a real AI adoption strategy — identifying workflows, selecting the right tools, and upskilling your teams.</p>
           <span class="service-link">Explore consulting</span>
         </a>
@@ -334,6 +333,9 @@
       <h2 class="section-title">Join a live session</h2>
       <p class="section-sub">Small cohorts. Direct access. Practical builds — not passive slides.</p>
       <div class="sessions-list" id="sessionsList"></div>
+      <div id="sessionsFooter" style="display:none;text-align:center;margin-top:28px;">
+        <a href="training.html" style="font-size:.9rem;font-weight:600;color:var(--blue);">See all sessions on the Training page →</a>
+      </div>
     </div>
   </section>
 
@@ -495,7 +497,7 @@
     }, { threshold: 0.08 });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-    // Render sessions
+    // Render sessions (homepage: max 2)
     function renderSessions() {
       const list = document.getElementById('sessionsList');
       if (!UPCOMING_SESSIONS || UPCOMING_SESSIONS.length === 0) {
@@ -503,12 +505,16 @@
           <div class="no-sessions">
             <p style="font-size:1.5rem;margin-bottom:8px;">📅</p>
             <p><strong>No sessions currently scheduled.</strong></p>
-            <p style="margin-top:6px;">Follow on <a href="https://www.linkedin.com/in/sathish-genai-consultant" target="_blank" style="color:var(--blue);">LinkedIn</a> or 
+            <p style="margin-top:6px;">Follow on <a href="https://www.linkedin.com/in/sathish-genai-consultant" target="_blank" style="color:var(--blue);">LinkedIn</a> or
             <a href="https://wa.me/971585821482" target="_blank" style="color:#25d366;">WhatsApp Sathish</a> to be notified when the next session opens.</p>
           </div>`;
         return;
       }
-      list.innerHTML = UPCOMING_SESSIONS.map((s, i) => `
+      const visible = UPCOMING_SESSIONS.slice(0, 2);
+      if (UPCOMING_SESSIONS.length > 2) {
+        document.getElementById('sessionsFooter').style.display = 'block';
+      }
+      list.innerHTML = visible.map((s, i) => `
         <div class="session-card ${i === 0 ? 'featured' : ''} reveal">
           <div>
             <div class="session-top">
