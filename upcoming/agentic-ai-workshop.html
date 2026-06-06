@@ -1388,7 +1388,7 @@
         const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
         const isUAE = tz === "Asia/Dubai" || tz === "Asia/Muscat";
         const isIndia = tz === "Asia/Kolkata" || tz === "Asia/Calcutta";
-        const price = isUAE ? "AED 500" : isIndia ? "INR 10,000" : "USD 135";
+        const price = isUAE ? "AED 500" : isIndia ? "INR 10,000" : "USD 125";
         document.querySelectorAll(".price-display").forEach((el) => {
           el.textContent = price;
         });
