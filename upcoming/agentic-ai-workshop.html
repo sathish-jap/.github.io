@@ -149,6 +149,19 @@
       .hero-badge.seat .dot {
         background: #c2410c;
       }
+      .hero-badge.intro {
+        background: #f0fdf4;
+        border-color: #a7f3d0;
+        color: #059669;
+      }
+      .hero-badge.intro .dot {
+        background: #059669;
+      }
+      .intro-pricing-note {
+        margin-top: 14px;
+        font-size: 0.82rem;
+        color: var(--slate-500);
+      }
 
       h1 {
         font-family: var(--font-display);
@@ -919,6 +932,10 @@
             <span class="dot"></span>
             Only 10 seats per batch
           </div>
+          <div class="hero-badge intro">
+            <span class="dot"></span>
+            Introductory pricing — first few batches
+          </div>
         </div>
 
         <h1>
@@ -948,7 +965,7 @@
             class="btn-primary"
             target="_blank"
           >
-            📋 Reserve My Seat — <span class="price-display">AED 500</span>
+            📋 Reserve My Seat — <span class="price-display">AED 300</span>
           </a>
           <a
             href="https://wa.me/971585821482?text=Hello%20Sathish%2C%20I%27m%20interested%20in%20the%20AI%20Agents%20for%20Non-Technical%20Leaders%20session"
@@ -958,6 +975,9 @@
             💬 Message on WhatsApp
           </a>
         </div>
+        <p class="intro-pricing-note">
+          Introductory pricing for the first few batches. Price may increase in future cohorts.
+        </p>
       </div>
     </section>
 
@@ -1200,7 +1220,7 @@
               <div class="guarantee-pill">✓ One-step refund process</div>
             </div>
             <a href="https://forms.gle/jLB8LkGsGhdT1Go5A" class="btn-primary" target="_blank" style="margin-top: 24px; display: inline-flex;">
-              📋 Reserve My Seat — <span class="price-display">AED 500</span>
+              📋 Reserve My Seat — <span class="price-display">AED 300</span>
             </a>
           </div>
           <div class="guarantee-badge">
@@ -1337,7 +1357,7 @@
       <div class="container">
         <div class="cta-final-title">Ready to understand AI agents from the inside?</div>
         <p class="cta-final-sub">
-          One full day. Ten seats per batch. One working agent. <span class="price-display">AED 500</span>.
+          One full day. Ten seats per batch. One working agent. <span class="price-display">AED 300</span>.
         </p>
         <div class="cta-seat-note">
           <span>⚡</span> Only 10 seats per batch — Batch 1: 13-Jun-26 &nbsp;·&nbsp; Batch 2: 14-Jun-26 &nbsp;·&nbsp; <span id="time-cta">8.30 am–4.30 pm (GST)</span>
@@ -1388,7 +1408,7 @@
         const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
         const isUAE = tz === "Asia/Dubai" || tz === "Asia/Muscat";
         const isIndia = tz === "Asia/Kolkata" || tz === "Asia/Calcutta";
-        const price = isUAE ? "AED 500" : isIndia ? "INR 10,000" : "USD 125";
+        const price = isUAE ? "AED 300" : isIndia ? "INR 6,000" : "USD 100";
         document.querySelectorAll(".price-display").forEach((el) => {
           el.textContent = price;
         });
