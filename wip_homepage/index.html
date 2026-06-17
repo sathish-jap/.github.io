@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Kogniva.ai — Refreshing Soon</title>
+  <meta name="description" content="Kogniva.ai is refreshing its content. We'll be back shortly." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:ital,wght@0,600;0,700;1,400;1,600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue:        #2563eb;
+      --blue-light:  #eff6ff;
+      --blue-mid:    #dbeafe;
+      --blue-deep:   #1d4ed8;
+      --slate-900:   #0f172a;
+      --slate-700:   #334155;
+      --slate-600:   #475569;
+      --slate-500:   #64748b;
+      --slate-400:   #94a3b8;
+      --slate-200:   #e2e8f0;
+      --slate-100:   #f1f5f9;
+      --slate-50:    #f8fafc;
+      --white:       #ffffff;
+    }
+
+    html, body { height: 100%; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      color: var(--slate-700);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background:
+        radial-gradient(ellipse 75% 60% at 15% 5%,  #eff6ff 0%, transparent 55%),
+        radial-gradient(ellipse 55% 45% at 85% 95%, #f0fdf4 0%, transparent 50%),
+        var(--white);
+      overflow-x: hidden;
+    }
+
+    /* ── Nav ── */
+    .nav {
+      padding: 24px 40px;
+      display: flex;
+      align-items: center;
+    }
+    .logo {
+      font-family: 'Lora', serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--slate-900);
+      text-decoration: none;
+      letter-spacing: -.01em;
+      user-select: none;
+    }
+    .logo span { color: var(--blue); }
+
+    /* ── Main ── */
+    main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 24px 64px;
+    }
+
+    .content {
+      text-align: center;
+      max-width: 500px;
+      width: 100%;
+    }
+
+    /* ── Pulse animation ── */
+    .pulse-wrap {
+      width: 120px;
+      height: 120px;
+      margin: 0 auto 44px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .ring {
+      position: absolute;
+      border-radius: 50%;
+      border: 1.5px solid var(--blue);
+      animation: expand 2.6s cubic-bezier(.4, 0, .2, 1) infinite;
+      opacity: 0;
+    }
+    .ring:nth-child(1) { width: 44px;  height: 44px;  animation-delay: 0s; }
+    .ring:nth-child(2) { width: 76px;  height: 76px;  animation-delay: .65s; }
+    .ring:nth-child(3) { width: 112px; height: 112px; animation-delay: 1.3s; }
+
+    @keyframes expand {
+      0%   { opacity: .65; transform: scale(.72); }
+      100% { opacity: 0;   transform: scale(1);   }
+    }
+
+    .core {
+      position: relative;
+      z-index: 1;
+      width: 44px;
+      height: 44px;
+      background: var(--blue-light);
+      border: 1.5px solid var(--blue-mid);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 0 4px rgba(37,99,235,.06);
+    }
+    .core-letter {
+      font-family: 'Lora', serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--blue);
+      line-height: 1;
+    }
+
+    /* ── Badge ── */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: var(--blue-light);
+      border: 1px solid var(--blue-mid);
+      border-radius: 999px;
+      padding: 5px 14px;
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 22px;
+    }
+    .badge .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--blue);
+      animation: blink 1.6s ease-in-out infinite;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: .25; }
+    }
+
+    /* ── Headline ── */
+    h1 {
+      font-family: 'Lora', serif;
+      font-size: clamp(2rem, 4.5vw, 2.75rem);
+      font-weight: 700;
+      color: var(--slate-900);
+      line-height: 1.17;
+      letter-spacing: -.025em;
+      margin-bottom: 18px;
+    }
+    h1 em {
+      color: var(--blue);
+      font-style: italic;
+    }
+
+    /* ── Body text ── */
+    .sub {
+      font-size: 1rem;
+      color: var(--slate-500);
+      line-height: 1.78;
+      margin-bottom: 40px;
+    }
+
+    /* ── CTAs ── */
+    .ctas {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 52px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 11px 22px;
+      border-radius: 10px;
+      font-family: 'Inter', sans-serif;
+      font-size: .9rem;
+      font-weight: 600;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: transform .16s ease, box-shadow .16s ease, border-color .16s ease, color .16s ease;
+      white-space: nowrap;
+    }
+    .btn:hover  { transform: translateY(-2px); }
+    .btn:active { transform: translateY(0); }
+
+    .btn-primary {
+      background: var(--blue);
+      color: var(--white);
+      box-shadow: 0 1px 3px rgba(37,99,235,.3), 0 4px 14px rgba(37,99,235,.18);
+    }
+    .btn-primary:hover {
+      background: var(--blue-deep);
+      box-shadow: 0 4px 18px rgba(37,99,235,.38), 0 2px 6px rgba(37,99,235,.22);
+    }
+
+    .btn-ghost {
+      background: var(--white);
+      color: var(--slate-700);
+      border: 1.5px solid var(--slate-200);
+      box-shadow: 0 1px 3px rgba(0,0,0,.06);
+    }
+    .btn-ghost:hover {
+      border-color: var(--blue-mid);
+      color: var(--blue);
+      box-shadow: 0 4px 14px rgba(37,99,235,.09);
+    }
+
+    /* ── Divider ── */
+    .rule {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 20px;
+      color: var(--slate-400);
+      font-size: .78rem;
+      font-weight: 500;
+      letter-spacing: .04em;
+    }
+    .rule::before,
+    .rule::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--slate-200);
+    }
+
+    /* ── Trust pills ── */
+    .trust {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .pill {
+      display: inline-block;
+      font-size: .75rem;
+      font-weight: 600;
+      padding: 4px 13px;
+      border-radius: 999px;
+    }
+    .pill-red    { background: #fef2f2; color: #dc2626; border: 1px solid #fecaca; }
+    .pill-blue   { background: var(--blue-light); color: #1d4ed8; border: 1px solid var(--blue-mid); }
+    .pill-purple { background: #f5f3ff; color: #7c3aed; border: 1px solid #ddd6fe; }
+
+    /* ── Footer ── */
+    footer {
+      padding: 18px 40px;
+      text-align: center;
+      font-size: .8rem;
+      color: var(--slate-400);
+      border-top: 1px solid var(--slate-100);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 480px) {
+      .nav  { padding: 20px 24px; }
+      footer { padding: 18px 24px; }
+      .ctas { flex-direction: column; align-items: center; }
+      .btn  { width: 100%; justify-content: center; max-width: 300px; }
+      .sub  { font-size: .95rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <a href="#" class="logo">Kogniva<span>.ai</span></a>
+  </nav>
+
+  <main>
+    <div class="content">
+
+      <!-- Animated signal mark -->
+      <div class="pulse-wrap" aria-hidden="true">
+        <div class="ring"></div>
+        <div class="ring"></div>
+        <div class="ring"></div>
+        <div class="core">
+          <span class="core-letter">K</span>
+        </div>
+      </div>
+
+      <!-- Status badge -->
+      <div class="badge">
+        <span class="dot"></span>
+        Site refresh in progress
+      </div>
+
+      <!-- Headline -->
+      <h1>Something <em>better</em><br>is on the way.</h1>
+
+      <!-- Body -->
+      <p class="sub">
+        We're revamping our content to better reflect what Kogniva delivers.<br>
+        In the meantime, reach out — we're very much open for business.
+      </p>
+
+      <!-- CTAs -->
+      <div class="ctas">
+        <a href="https://www.linkedin.com/in/sathish-genai-consultant" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+          <!-- LinkedIn icon -->
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+          </svg>
+          Connect on LinkedIn
+        </a>
+        <a href="https://wa.me/971585821482?text=Hello%20Sathish%2C%20I%27d%20like%20to%20learn%20more%20about%20Kogniva" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">
+          <!-- WhatsApp icon -->
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#25d366" aria-hidden="true">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/>
+          </svg>
+          WhatsApp Sathish
+        </a>
+      </div>
+
+      <!-- Trust bar -->
+      <div class="rule">Experience behind the training</div>
+      <div class="trust">
+        <span class="pill pill-red">Emirates Airline</span>
+        <span class="pill pill-blue">IBM</span>
+        <span class="pill pill-purple">Accenture</span>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    © 2026 Kogniva.ai &nbsp;·&nbsp; Sharjah &thinsp;·&thinsp; Dubai &thinsp;·&thinsp; Abu Dhabi
+  </footer>
+
+</body>
+</html>
