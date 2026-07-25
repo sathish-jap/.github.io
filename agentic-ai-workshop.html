@@ -1,0 +1,1480 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      AI Agents for Non-Technical Leaders — Full-Day Session by Sathish
+    </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      :root {
+        --blue: #2563eb;
+        --blue-light: #eff6ff;
+        --blue-mid: #dbeafe;
+        --blue-deep: #1d4ed8;
+        --green: #059669;
+        --green-bg: #ecfdf5;
+        --green-border: #a7f3d0;
+        --amber: #d97706;
+        --amber-bg: #fffbeb;
+        --amber-border: #fde68a;
+        --slate-900: #0f172a;
+        --slate-700: #334155;
+        --slate-600: #475569;
+        --slate-500: #64748b;
+        --slate-300: #cbd5e1;
+        --slate-100: #f1f5f9;
+        --slate-50: #f8fafc;
+        --white: #ffffff;
+        --radius: 12px;
+        --radius-lg: 20px;
+        --shadow-sm:
+          0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.06);
+        --shadow-md:
+          0 4px 16px rgba(37, 99, 235, 0.1), 0 2px 6px rgba(0, 0, 0, 0.06);
+        --shadow-lg:
+          0 12px 40px rgba(37, 99, 235, 0.14), 0 4px 12px rgba(0, 0, 0, 0.08);
+        --font-display: "Lora", serif;
+        --font-body: "Inter", sans-serif;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: var(--font-body);
+        font-size: 16px;
+        color: var(--slate-700);
+        background: var(--white);
+        line-height: 1.65;
+        overflow-x: hidden;
+      }
+
+      .container {
+        max-width: 1080px;
+        margin: 0 auto;
+        padding: 0 32px;
+      }
+      section {
+        padding: 72px 0;
+      }
+      section.tight {
+        padding: 48px 0;
+      }
+
+      /* ── Section eyebrow ── */
+      .section-eyebrow {
+        display: inline-block;
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--blue);
+        margin-bottom: 10px;
+      }
+      h2.section-title {
+        font-family: var(--font-display);
+        font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+        font-weight: 700;
+        color: var(--slate-900);
+        line-height: 1.25;
+        margin-bottom: 8px;
+      }
+      .section-sub {
+        color: var(--slate-500);
+        font-size: 1rem;
+        margin-bottom: 40px;
+      }
+
+      /* ── HERO ── */
+      #hero {
+        padding: 56px 0 48px;
+        background:
+          radial-gradient(
+            ellipse 70% 60% at 80% 40%,
+            #eff6ff 0%,
+            transparent 65%
+          ),
+          radial-gradient(
+            ellipse 50% 40% at 20% 80%,
+            #f0fdf4 0%,
+            transparent 60%
+          ),
+          var(--white);
+      }
+      .hero-badges {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 24px;
+      }
+      .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: var(--amber-bg);
+        border: 1px solid var(--amber-border);
+        border-radius: 999px;
+        padding: 5px 14px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: var(--amber);
+      }
+      .hero-badge .dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: var(--amber);
+      }
+      .hero-badge.seat {
+        background: #fff7ed;
+        border-color: #fed7aa;
+        color: #c2410c;
+      }
+      .hero-badge.seat .dot {
+        background: #c2410c;
+      }
+      .hero-badge.intro {
+        background: #f0fdf4;
+        border-color: #a7f3d0;
+        color: #059669;
+      }
+      .hero-badge.intro .dot {
+        background: #059669;
+      }
+      .intro-pricing-note {
+        margin-top: 14px;
+        font-size: 0.82rem;
+        color: var(--slate-500);
+      }
+
+      h1 {
+        font-family: var(--font-display);
+        font-size: clamp(2rem, 4vw, 2.9rem);
+        font-weight: 700;
+        color: var(--slate-900);
+        line-height: 1.18;
+        letter-spacing: -0.02em;
+        margin-bottom: 20px;
+      }
+      h1 em {
+        font-style: italic;
+        color: var(--blue);
+      }
+
+      .hero-desc {
+        font-size: 1.05rem;
+        color: var(--slate-500);
+        line-height: 1.75;
+        margin-bottom: 28px;
+      }
+
+      /* Prerequisite notice */
+      .prereq-notice {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        background: var(--amber-bg);
+        border: 1px solid var(--amber-border);
+        border-radius: var(--radius);
+        padding: 12px 16px;
+        margin-bottom: 28px;
+        max-width: 600px;
+      }
+      .prereq-icon {
+        font-size: 1rem;
+        flex-shrink: 0;
+        margin-top: 1px;
+      }
+      .prereq-text {
+        font-size: 0.88rem;
+        color: var(--slate-700);
+        line-height: 1.55;
+      }
+      .prereq-text strong {
+        color: var(--slate-900);
+      }
+
+      .hero-meta {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        margin-bottom: 32px;
+      }
+      .hero-meta-item {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 0.85rem;
+        color: var(--slate-500);
+      }
+
+      .hero-ctas {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+      }
+      .btn-primary {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: var(--blue);
+        color: var(--white);
+        padding: 13px 26px;
+        border-radius: var(--radius);
+        font-weight: 600;
+        font-size: 0.95rem;
+        text-decoration: none;
+        box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
+        transition:
+          background 0.2s,
+          transform 0.15s,
+          box-shadow 0.2s;
+      }
+      .btn-primary:hover {
+        background: var(--blue-deep);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(37, 99, 235, 0.4);
+      }
+      .btn-whatsapp {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: #25d366;
+        color: var(--white);
+        padding: 13px 22px;
+        border-radius: var(--radius);
+        font-weight: 600;
+        font-size: 0.95rem;
+        text-decoration: none;
+        box-shadow: 0 4px 14px rgba(37, 211, 102, 0.3);
+        transition:
+          background 0.2s,
+          transform 0.15s;
+      }
+      .btn-whatsapp:hover {
+        background: #1db954;
+        transform: translateY(-2px);
+      }
+
+      /* ── WHAT YOU'LL EXPERIENCE ── */
+      #experience {
+        background: var(--slate-50);
+      }
+      .build-cards-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+      .build-card {
+        background: var(--white);
+        border: 1.5px solid var(--slate-100);
+        border-radius: var(--radius-lg);
+        padding: 32px;
+        display: flex;
+        gap: 24px;
+        align-items: flex-start;
+        box-shadow: var(--shadow-sm);
+      }
+      .build-icon {
+        width: 56px;
+        height: 56px;
+        flex-shrink: 0;
+        background: var(--blue-light);
+        border: 1px solid var(--blue-mid);
+        border-radius: var(--radius);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .build-icon svg {
+        width: 26px;
+        height: 26px;
+      }
+      .build-title {
+        font-family: var(--font-display);
+        font-size: 1.05rem;
+        font-weight: 600;
+        color: var(--slate-900);
+        margin-bottom: 8px;
+      }
+      .build-desc {
+        font-size: 0.95rem;
+        color: var(--slate-500);
+        line-height: 1.7;
+      }
+
+      /* ── OUTCOMES ── */
+      #outcomes {
+        background: var(--white);
+      }
+      .outcomes-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+      }
+      .outcome-item {
+        display: flex;
+        gap: 14px;
+        align-items: flex-start;
+        background: var(--blue-light);
+        border-radius: var(--radius);
+        padding: 20px;
+        border: 1px solid var(--blue-mid);
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s;
+      }
+      .outcome-item:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-sm);
+      }
+      .outcome-num {
+        width: 28px;
+        height: 28px;
+        flex-shrink: 0;
+        background: var(--blue);
+        color: var(--white);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.75rem;
+        font-weight: 600;
+      }
+      .outcome-text {
+        font-size: 0.9rem;
+        color: var(--slate-700);
+        line-height: 1.55;
+      }
+
+      /* ── CURRICULUM ── */
+      #curriculum {
+        background: var(--slate-50);
+      }
+      .curriculum-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+      .day-card {
+        background: var(--white);
+        border: 1.5px solid var(--slate-100);
+        border-radius: var(--radius-lg);
+        padding: 28px;
+        box-shadow: var(--shadow-sm);
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s;
+      }
+      .day-card:hover {
+        transform: translateY(-3px);
+        box-shadow: var(--shadow-md);
+      }
+      .day-header {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 6px;
+      }
+      .day-badge {
+        display: inline-flex;
+        align-items: center;
+        background: var(--green-bg);
+        color: var(--green);
+        border: 1px solid var(--green-border);
+        border-radius: 999px;
+        padding: 3px 12px;
+        font-size: 0.75rem;
+        font-weight: 600;
+      }
+      .day-badge-blue {
+        display: inline-flex;
+        align-items: center;
+        background: var(--blue-light);
+        color: var(--blue);
+        border: 1px solid var(--blue-mid);
+        border-radius: 999px;
+        padding: 3px 12px;
+        font-size: 0.75rem;
+        font-weight: 600;
+      }
+      .day-date {
+        font-size: 0.82rem;
+        color: var(--slate-500);
+      }
+      .day-title {
+        font-family: var(--font-display);
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--slate-900);
+        margin-bottom: 16px;
+      }
+      .day-items {
+        list-style: none;
+      }
+      .day-items li {
+        font-size: 0.88rem;
+        color: var(--slate-600);
+        padding: 5px 0 5px 18px;
+        position: relative;
+        line-height: 1.5;
+        border-bottom: 1px solid var(--slate-100);
+      }
+      .day-items li:last-child {
+        border-bottom: none;
+      }
+      .day-items li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 13px;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--blue);
+      }
+
+      /* ── AUDIENCE + PREREQ ── */
+      #audience {
+        background: var(--white);
+      }
+      .audience-prereq-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 16px;
+      }
+
+      .audience-card {
+        border-radius: var(--radius);
+        padding: 24px;
+        border: 1.5px solid var(--slate-100);
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s;
+      }
+      .audience-card:hover {
+        transform: translateY(-3px);
+        box-shadow: var(--shadow-md);
+      }
+      .audience-card.yes {
+        background: var(--green-bg);
+        border-color: var(--green-border);
+      }
+      .audience-card.no {
+        background: var(--white);
+      }
+      .audience-card.prereq {
+        background: var(--amber-bg);
+        border-color: var(--amber-border);
+      }
+      .audience-card-label {
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        margin-bottom: 12px;
+      }
+      .audience-card.yes .audience-card-label {
+        color: var(--green);
+      }
+      .audience-card.no .audience-card-label {
+        color: var(--slate-500);
+      }
+      .audience-card.prereq .audience-card-label {
+        color: var(--amber);
+      }
+      .audience-list {
+        list-style: none;
+      }
+      .audience-list li {
+        font-size: 0.88rem;
+        padding: 4px 0;
+        line-height: 1.5;
+        padding-left: 16px;
+        position: relative;
+      }
+      .audience-card.yes .audience-list li {
+        color: #065f46;
+      }
+      .audience-card.no .audience-list li {
+        color: var(--slate-600);
+      }
+      .audience-card.prereq .audience-list li {
+        color: #92400e;
+      }
+      .audience-card.yes .audience-list li::before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: var(--green);
+        font-size: 0.8rem;
+      }
+      .audience-card.no .audience-list li::before {
+        content: "✕";
+        position: absolute;
+        left: 0;
+        color: var(--slate-400);
+        font-size: 0.8rem;
+      }
+      .audience-card.prereq .audience-list li::before {
+        content: "→";
+        position: absolute;
+        left: 0;
+        color: var(--amber);
+        font-size: 0.8rem;
+      }
+
+      /* ── BONUSES ── */
+      #bonuses {
+        background: var(--slate-50);
+      }
+      .bonus-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+
+      /* ── GUARANTEE ── */
+      #guarantee {
+        background: var(--white);
+      }
+      .guarantee-banner {
+        background: linear-gradient(135deg, #f0fdf4 0%, var(--green-bg) 100%);
+        border: 1.5px solid var(--green-border);
+        border-radius: var(--radius-lg);
+        padding: 40px 48px;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 40px;
+        align-items: center;
+      }
+      .guarantee-title {
+        font-family: var(--font-display);
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: var(--slate-900);
+        margin-bottom: 10px;
+      }
+      .guarantee-desc {
+        color: var(--slate-600);
+        font-size: 0.95rem;
+        line-height: 1.7;
+        margin-bottom: 20px;
+      }
+      .guarantee-pills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .guarantee-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: var(--white);
+        color: var(--green);
+        border: 1px solid var(--green-border);
+        border-radius: 999px;
+        padding: 5px 14px;
+        font-size: 0.8rem;
+        font-weight: 600;
+      }
+      .guarantee-badge {
+        width: 110px;
+        height: 110px;
+        flex-shrink: 0;
+        background: var(--green);
+        border-radius: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: var(--white);
+        text-align: center;
+        box-shadow: 0 8px 24px rgba(5, 150, 105, 0.25);
+      }
+      .guarantee-badge .big {
+        font-size: 1.6rem;
+        font-weight: 700;
+        font-family: var(--font-display);
+        line-height: 1;
+      }
+      .guarantee-badge .small {
+        font-size: 0.65rem;
+        font-weight: 600;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        margin-top: 3px;
+      }
+
+      /* ── FAQ ── */
+      #faq {
+        background: var(--slate-50);
+      }
+      .faq-list {
+        max-width: 760px;
+      }
+      .faq-item {
+        background: var(--white);
+        border: 1.5px solid var(--slate-100);
+        border-radius: var(--radius);
+        margin-bottom: 12px;
+        overflow: hidden;
+        transition: border-color 0.2s;
+      }
+      .faq-item:hover {
+        border-color: var(--blue-mid);
+      }
+      .faq-q {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 18px 20px;
+        cursor: pointer;
+        user-select: none;
+        gap: 12px;
+      }
+      .faq-q-text {
+        font-weight: 600;
+        font-size: 0.9rem;
+        color: var(--slate-900);
+        line-height: 1.4;
+      }
+      .faq-icon {
+        width: 28px;
+        height: 28px;
+        flex-shrink: 0;
+        background: var(--blue-light);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--blue);
+        font-size: 1.1rem;
+        font-weight: 600;
+        transition:
+          transform 0.3s,
+          background 0.2s;
+      }
+      .faq-item.open .faq-icon {
+        transform: rotate(45deg);
+        background: var(--blue);
+        color: var(--white);
+      }
+      .faq-a {
+        display: none;
+        padding: 14px 20px 18px;
+        font-size: 0.88rem;
+        color: var(--slate-500);
+        line-height: 1.65;
+        border-top: 1px solid var(--slate-100);
+      }
+      .faq-item.open .faq-a {
+        display: block;
+      }
+
+      /* ── INSTRUCTOR ── */
+      #instructor {
+        background: var(--white);
+      }
+      .instructor-inner {
+        display: grid;
+        grid-template-columns: 260px 1fr;
+        gap: 52px;
+        align-items: start;
+      }
+      .instructor-photo-wrap {
+        position: relative;
+      }
+      .instructor-photo {
+        width: 100%;
+        aspect-ratio: 1;
+        border-radius: var(--radius-lg);
+        object-fit: cover;
+        display: block;
+        box-shadow: var(--shadow-lg);
+      }
+      .instructor-badges {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 16px;
+      }
+      .ibadge {
+        padding: 4px 12px;
+        border-radius: 999px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: var(--white);
+      }
+      .ibadge.emirates {
+        background: #dc2626;
+      }
+      .ibadge.ibm {
+        background: #1d4ed8;
+      }
+      .ibadge.acc {
+        background: #7c3aed;
+      }
+      .ibadge.exp {
+        background: var(--green);
+      }
+      .instructor-name {
+        font-family: var(--font-display);
+        font-size: 1.7rem;
+        font-weight: 700;
+        color: var(--slate-900);
+        margin-bottom: 4px;
+      }
+      .instructor-role {
+        font-size: 0.95rem;
+        color: var(--blue);
+        font-weight: 600;
+        margin-bottom: 20px;
+      }
+      .instructor-bio {
+        color: var(--slate-600);
+        line-height: 1.75;
+        font-size: 0.95rem;
+        margin-bottom: 16px;
+      }
+      .linkedin-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--blue);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.88rem;
+        padding: 8px 16px;
+        border: 1.5px solid var(--blue-mid);
+        border-radius: var(--radius);
+        transition: background 0.2s;
+      }
+      .linkedin-link:hover {
+        background: var(--blue-light);
+      }
+
+      /* ── FINAL CTA ── */
+      #final-cta {
+        background: linear-gradient(135deg, var(--blue) 0%, #1e40af 100%);
+        padding: 80px 0;
+        text-align: center;
+      }
+      .cta-final-title {
+        font-family: var(--font-display);
+        font-size: clamp(1.5rem, 3vw, 2.1rem);
+        font-weight: 700;
+        color: var(--white);
+        margin-bottom: 10px;
+      }
+      .cta-final-sub {
+        color: rgba(255, 255, 255, 0.75);
+        font-size: 1rem;
+        margin-bottom: 12px;
+      }
+      .cta-seat-note {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(255, 255, 255, 0.15);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        color: #fde68a;
+        border-radius: 999px;
+        padding: 5px 14px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        margin-bottom: 32px;
+      }
+      .cta-final-btns {
+        display: flex;
+        gap: 16px;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-bottom: 20px;
+      }
+      .btn-white {
+        background: var(--white);
+        color: var(--blue);
+        padding: 14px 28px;
+        border-radius: var(--radius);
+        font-weight: 700;
+        font-size: 1rem;
+        text-decoration: none;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+        transition:
+          transform 0.15s,
+          box-shadow 0.2s;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .btn-white:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+      }
+      .btn-wa-final {
+        background: #25d366;
+        color: var(--white);
+        padding: 14px 28px;
+        border-radius: var(--radius);
+        font-weight: 700;
+        font-size: 1rem;
+        text-decoration: none;
+        box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
+        transition:
+          transform 0.15s,
+          background 0.2s;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .btn-wa-final:hover {
+        background: #1db954;
+        transform: translateY(-2px);
+      }
+      .cta-note {
+        color: rgba(255, 255, 255, 0.5);
+        font-size: 0.8rem;
+      }
+
+      /* ── FOOTER ── */
+      footer {
+        background: var(--slate-900);
+        color: var(--slate-500);
+        text-align: center;
+        padding: 28px;
+        font-size: 0.82rem;
+      }
+      footer a {
+        color: var(--slate-300);
+        text-decoration: none;
+      }
+      footer a:hover {
+        color: var(--white);
+      }
+
+      /* ── RESPONSIVE ── */
+      @media (max-width: 900px) {
+        .audience-prereq-grid {
+          grid-template-columns: 1fr;
+        }
+        .instructor-inner {
+          grid-template-columns: 1fr;
+        }
+        .instructor-photo {
+          max-width: 200px;
+        }
+        .guarantee-banner {
+          grid-template-columns: 1fr;
+        }
+        .guarantee-badge {
+          width: 80px;
+          height: 80px;
+        }
+      }
+      @media (max-width: 640px) {
+        .outcomes-grid,
+        .curriculum-grid,
+        .build-cards-grid,
+        .bonus-grid {
+          grid-template-columns: 1fr;
+        }
+        .hero-ctas {
+          flex-direction: column;
+        }
+        .cta-final-btns {
+          flex-direction: column;
+          align-items: center;
+        }
+        .guarantee-banner {
+          padding: 28px 24px;
+        }
+      }
+      @media (max-width: 480px) {
+        .container {
+          padding: 0 16px;
+        }
+        section {
+          padding: 48px 0;
+        }
+        h1 {
+          font-size: 1.7rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ── HERO ─────────────────────────────────────────────── -->
+    <section id="hero">
+      <div class="container">
+        <div class="hero-badges">
+          <div class="hero-badge">
+            <span class="dot"></span>
+            Full-Day Session &nbsp;·&nbsp; 13 &amp; 14 Jun 2026 &nbsp;·&nbsp; Google Meet
+          </div>
+          <div class="hero-badge seat">
+            <span class="dot"></span>
+            Only 10 seats per batch
+          </div>
+          <div class="hero-badge intro">
+            <span class="dot"></span>
+            Introductory pricing — first few batches
+          </div>
+        </div>
+
+        <h1>
+          Understand AI Agents. See them in Action.<br />Then build one yourself.<br /><em
+            >No technical background needed.</em
+          >
+        </h1>
+
+        <p class="hero-desc">
+          A full-day workshop for
+          <strong>IT leaders, managers, and business professionals</strong>
+          who want to ask the right questions, make sound decisions, and stay ahead of the agentic shift.
+        </p>
+
+        <div class="hero-meta">
+          <div class="hero-meta-item">
+            📅 Batch 1: 13-Jun-26 &nbsp;·&nbsp; Batch 2: 14-Jun-26
+          </div>
+          <div class="hero-meta-item" id="time-hero">
+            ⏱ 8.30 am to 4.30 pm (GST)
+          </div>
+        </div>
+
+        <div class="hero-ctas">
+          <a
+            href="https://forms.gle/jLB8LkGsGhdT1Go5A"
+            class="btn-primary"
+            target="_blank"
+          >
+            📋 Reserve My Seat — <span class="price-display">AED 300</span>
+          </a>
+          <a
+            href="https://wa.me/971585821482?text=Hello%20Sathish%2C%20I%27m%20interested%20in%20the%20AI%20Agents%20for%20Non-Technical%20Leaders%20session"
+            class="btn-whatsapp"
+            target="_blank"
+          >
+            💬 Message on WhatsApp
+          </a>
+        </div>
+        <p class="intro-pricing-note" id="intro-pricing-note"></p>
+      </div>
+    </section>
+
+    <!-- ── WHAT YOU'LL EXPERIENCE ────────────────────────── -->
+    <section id="experience" class="tight">
+      <div class="container">
+        <span class="section-eyebrow">What the day looks like</span>
+        <h2 class="section-title">
+          A live agent built in front of you — and one you build yourself
+        </h2>
+        <p class="section-sub">
+          Morning is conceptual and strategic. Evening is hands-on. Both matter.
+        </p>
+        <div class="build-cards-grid">
+          <div class="build-card">
+            <div class="build-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#2563eb"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M9 21h6M12 3a6 6 0 0 1 6 6c0 2.22-1.21 4.16-3 5.2V17H9v-2.8C7.21 13.16 6 11.22 6 9a6 6 0 0 1 6-6z"/>
+              </svg>
+            </div>
+            <div>
+              <div class="build-title">Morning — Live AI agent demonstration</div>
+              <p class="build-desc">
+                Watch an AI agent built from scratch in real time. Understand how it thinks, what tools it uses, and where it can fail — explained in plain business terms, with no technical jargon.
+              </p>
+            </div>
+          </div>
+          <div class="build-card">
+            <div class="build-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#2563eb"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                <circle cx="9" cy="7" r="4"/>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+              </svg>
+            </div>
+            <div>
+              <div class="build-title">Evening — Build one yourself</div>
+              <p class="build-desc">
+                In groups of five, you'll draft a requirements brief and use Claude Code to build a working AI agent — guided throughout by the instructor. No coding required.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── OUTCOMES ───────────────────────────────────────── -->
+    <section id="outcomes">
+      <div class="container">
+        <span class="section-eyebrow">What you'll walk away with</span>
+        <h2 class="section-title">
+          Four things you'll be able to do after this session
+        </h2>
+        <p class="section-sub">
+          Strategic clarity and practical experience — not just theory.
+        </p>
+        <div class="outcomes-grid">
+          <div class="outcome-item">
+            <div class="outcome-num">01</div>
+            <div class="outcome-text">
+              Understand what AI agents are and why they'll reshape your industry — in plain business terms, not technical jargon
+            </div>
+          </div>
+          <div class="outcome-item">
+            <div class="outcome-num">02</div>
+            <div class="outcome-text">
+              Evaluate AI agent use cases for your organisation: know when to build, when to buy, and when to wait
+            </div>
+          </div>
+          <div class="outcome-item">
+            <div class="outcome-num">03</div>
+            <div class="outcome-text">
+              Get hands-on — build a working AI agent in a guided session, no coding required
+            </div>
+          </div>
+          <div class="outcome-item">
+            <div class="outcome-num">04</div>
+            <div class="outcome-text">
+              Leave with a WhatsApp community and a complimentary Wednesday follow-up session to keep the momentum going
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CURRICULUM ─────────────────────────────────────── -->
+    <section id="curriculum">
+      <div class="container">
+        <span class="section-eyebrow">How the day is structured</span>
+        <h2 class="section-title">One full day. Two distinct halves.</h2>
+        <p class="section-sub">
+          Both sessions run on Google Meet. &nbsp;<span id="time-schedule">Morning: 8.30 am–12:00 pm &nbsp;·&nbsp; Evening: 1.30 pm–4.30 pm (GST)</span>
+        </p>
+        <div class="curriculum-grid">
+          <div class="day-card">
+            <div class="day-header">
+              <span class="day-badge">Morning</span>
+              <span class="day-date">~3.5 hours</span>
+            </div>
+            <div class="day-title">Foundations, Strategy &amp; Live Demo</div>
+            <ul class="day-items">
+              <li>What are AI agents and why they matter to your business</li>
+              <li>
+                How agents work: Model, Tools, Memory, and Connections — explained without jargon
+              </li>
+              <li>Claude Code introduction + live agent demo built in real time</li>
+              <li>
+                CLAUDE.md and PRD walkthrough — how to brief an agent for an evening build
+              </li>
+              <li>Open Q&amp;A and discussion throughout</li>
+            </ul>
+          </div>
+          <div class="day-card">
+            <div class="day-header">
+              <span class="day-badge">Evening</span>
+              <span class="day-date">~3 hours</span>
+            </div>
+            <div class="day-title">Hands-On Build &amp; Reflection</div>
+            <ul class="day-items">
+              <li>Use case briefing + Q&amp;A before going into breakout rooms</li>
+              <li>
+                Hands-on: draft a requirements brief and build an AI agent using Claude Code (groups of 5, instructor circulating)
+              </li>
+              <li>
+                Group reflection — each participant shares what they built, what surprised them
+              </li>
+              <li>Next steps, Wednesday follow-up session, and WhatsApp community onboarding</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── AUDIENCE + PREREQUISITES ───────────────────────── -->
+    <section id="audience">
+      <div class="container">
+        <span class="section-eyebrow">Is this right for you?</span>
+        <h2 class="section-title">
+          Built for senior professionals who make technology decisions
+        </h2>
+        <p class="section-sub">
+          This session is intentionally designed for a specific kind of professional.
+        </p>
+        <div class="audience-prereq-grid">
+          <div class="audience-card yes">
+            <div class="audience-card-label">This is for you if you...</div>
+            <ul class="audience-list">
+              <li>Are an IT leader, manager, or business decision-maker</li>
+              <li>Have no coding background or haven't written code in years</li>
+              <li>Understand basic software concepts (APIs, requests, responses)</li>
+              <li>Want to evaluate AI agents intelligently — not just read about them</li>
+              <li>Want hands-on experience, not just another slide deck</li>
+            </ul>
+          </div>
+          <div class="audience-card no">
+            <div class="audience-card-label">Not the right fit if you...</div>
+            <ul class="audience-list">
+              <li>Are a software developer or engineer actively building products</li>
+              <li>Have no professional IT or business background</li>
+              <li>
+                Are looking for a conceptual-only session with no hands-on work
+              </li>
+            </ul>
+          </div>
+          <div class="audience-card prereq">
+            <div class="audience-card-label">Prerequisites...</div>
+            <ul class="audience-list">
+              <li>
+                Claude Pro subscription required for the hands-on evening session (USD 20/month from Anthropic)
+              </li>
+              <li>A laptop with internet access</li>
+              <li>Setup instructions will be shared upon registration</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── BONUSES ────────────────────────────────────────── -->
+    <section id="bonuses">
+      <div class="container">
+        <span class="section-eyebrow">What's included beyond the day</span>
+        <h2 class="section-title">Two extras that extend your learning</h2>
+        <p class="section-sub">
+          The session price includes these — not as add-ons, but as part of the experience.
+        </p>
+        <div class="bonus-grid">
+          <div class="day-card">
+            <div class="day-header">
+              <span class="day-badge">Complimentary</span>
+            </div>
+            <div class="day-title">Wednesday Follow-up Session</div>
+            <p style="font-size: 0.92rem; color: var(--slate-500); line-height: 1.7;">
+              Three days after the main session, come back with real questions. You've had time to sit with what you built — now we'll unblock, consolidate, and plan your next steps. One hour, focused entirely on what you need.
+            </p>
+          </div>
+          <div class="day-card">
+            <div class="day-header">
+              <span class="day-badge-blue">Ongoing</span>
+            </div>
+            <div class="day-title">WhatsApp Community Access</div>
+            <p style="font-size: 0.92rem; color: var(--slate-500); line-height: 1.7;">
+              Join an ongoing community of leaders navigating AI adoption. Receive updates on AI agent developments, announcements for future sessions, and access to periodic free learning events — direct from Sathish.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── GUARANTEE ──────────────────────────────────────── -->
+    <section id="guarantee">
+      <div class="container">
+        <div class="guarantee-banner">
+          <div>
+            <span class="section-eyebrow">Our Guarantee</span>
+            <div class="guarantee-title">Risk-free by design</div>
+            <p class="guarantee-desc">
+              If the morning session doesn't meet your expectations, request a full refund —
+              no questions asked, no friction.
+            </p>
+            <div class="guarantee-pills">
+              <div class="guarantee-pill">
+                ✓ Full refund if unsatisfied after the morning session
+              </div>
+              <div class="guarantee-pill">✓ One-step refund process</div>
+            </div>
+            <a href="https://forms.gle/jLB8LkGsGhdT1Go5A" class="btn-primary" target="_blank" style="margin-top: 24px; display: inline-flex;">
+              📋 Reserve My Seat — <span class="price-display">AED 300</span>
+            </a>
+          </div>
+          <div class="guarantee-badge">
+            <span class="big">100%</span>
+            <span class="small">Risk Free</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── FAQ ────────────────────────────────────────────── -->
+    <section id="faq">
+      <div class="container">
+        <span class="section-eyebrow">FAQ</span>
+        <h2 class="section-title">Frequently asked questions</h2>
+        <p class="section-sub">
+          Still on the fence? These are the questions most people ask before registering.
+        </p>
+        <div class="faq-list">
+          <div class="faq-item">
+            <div
+              class="faq-q"
+              onclick="this.closest('.faq-item').classList.toggle('open')"
+            >
+              <span class="faq-q-text">Do I need any coding experience?</span>
+              <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-a">
+              No. The entire session is conducted in plain language. You'll describe what you want to build, and Claude Code handles the implementation. The understanding comes from watching it work — and then doing it yourself.
+            </div>
+          </div>
+          <div class="faq-item">
+            <div
+              class="faq-q"
+              onclick="this.closest('.faq-item').classList.toggle('open')"
+            >
+              <span class="faq-q-text">What software or subscriptions do I need?</span>
+              <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-a">
+              A Claude Pro subscription is required for the hands-on evening session. It is a paid Anthropic product and costs USD 20 per month. Detailed setup instructions will be shared with you after registration.
+            </div>
+          </div>
+          <div class="faq-item">
+            <div
+              class="faq-q"
+              onclick="this.closest('.faq-item').classList.toggle('open')"
+            >
+              <span class="faq-q-text">Will I actually build a working agent?</span>
+              <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-a">
+              Yes. In the evening session, you'll work in a group of five to draft a requirements brief and build a working AI agent using Claude Code — with instructor support throughout. You'll leave with something real.
+            </div>
+          </div>
+          <div class="faq-item">
+            <div
+              class="faq-q"
+              onclick="this.closest('.faq-item').classList.toggle('open')"
+            >
+              <span class="faq-q-text">What is included in the price?</span>
+              <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-a">
+              The price covers the full-day session (morning + evening), the complimentary Wednesday follow-up session (1 hour), WhatsApp community access, and recordings of both sessions shared after the day.
+            </div>
+          </div>
+          <div class="faq-item">
+            <div
+              class="faq-q"
+              onclick="this.closest('.faq-item').classList.toggle('open')"
+            >
+              <span class="faq-q-text">Who exactly is this for?</span>
+              <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-a">
+              IT leaders, managers, product leaders, business owners, and senior professionals who influence or make decisions about technology adoption — and who want a grounded, hands-on understanding of AI agents. You should be comfortable with basic software concepts like APIs and requests, but coding experience is not required.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── INSTRUCTOR ─────────────────────────────────────── -->
+    <section id="instructor">
+      <div class="container">
+        <div class="instructor-inner">
+          <div class="instructor-photo-wrap">
+            <img
+              class="instructor-photo"
+              src="./sathish_image.png"
+              alt="Sathishkumar Sadhasivam"
+            />
+            <div class="instructor-badges">
+              <span class="ibadge emirates">Ex-Emirates | IBM | Accenture</span>
+              <span class="ibadge exp">~20 Years in Enterprise IT</span>
+            </div>
+          </div>
+          <div>
+            <span class="section-eyebrow">Your Instructor</span>
+            <div class="instructor-name">Sathishkumar Sadhasivam</div>
+            <div class="instructor-role">GenAI Consultant &amp; Trainer</div>
+            <p class="instructor-bio">
+              Sathish has spent close to 20 years designing and delivering
+              technology solutions across some of the world's most complex
+              enterprise environments — including Emirates, IBM, and Accenture.
+            </p>
+            <p class="instructor-bio">
+              Today, he specialises in helping IT Professionals and
+              organisations navigate the shift to Generative AI — through
+              practical, hands-on training that skips the hype and gets straight
+              to what works.
+            </p>
+            <a
+              href="https://www.linkedin.com/in/sathish-genai-consultant"
+              class="linkedin-link"
+              target="_blank"
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#2563eb">
+                <path
+                  d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"
+                />
+                <circle cx="4" cy="4" r="2" />
+              </svg>
+              Connect on LinkedIn
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── FINAL CTA ──────────────────────────────────────── -->
+    <section id="final-cta">
+      <div class="container">
+        <div class="cta-final-title">Ready to understand AI agents from the inside?</div>
+        <p class="cta-final-sub">
+          One full day. Ten seats per batch. One working agent. <span class="price-display">AED 300</span>.
+        </p>
+        <div class="cta-seat-note">
+          <span>⚡</span> Only 10 seats per batch — Batch 1: 13-Jun-26 &nbsp;·&nbsp; Batch 2: 14-Jun-26 &nbsp;·&nbsp; <span id="time-cta">8.30 am–4.30 pm (GST)</span>
+        </div>
+        <div class="cta-final-btns">
+          <a
+            href="https://forms.gle/jLB8LkGsGhdT1Go5A"
+            class="btn-white"
+            target="_blank"
+          >
+            📋 Reserve My Seat
+          </a>
+          <a
+            href="https://wa.me/971585821482?text=Hello%20Sathish%2C%20I%27m%20interested%20in%20the%20AI%20Agents%20for%20Non-Technical%20Leaders%20session"
+            class="btn-wa-final"
+            target="_blank"
+          >
+            💬 Message on WhatsApp
+          </a>
+        </div>
+        <div class="cta-note">
+          100% refund guarantee if unsatisfied after the morning session &nbsp;·&nbsp; No
+          questions asked
+        </div>
+      </div>
+    </section>
+
+    <!-- ── FOOTER ─────────────────────────────────────────── -->
+    <footer>
+      <p>
+        <a
+          href="https://www.linkedin.com/in/sathish-genai-consultant"
+          target="_blank"
+          >LinkedIn</a
+        >
+        &nbsp;·&nbsp;
+        <a
+          href="https://wa.me/971585821482?text=Hello%20Sathish"
+          target="_blank"
+          >WhatsApp</a
+        >
+      </p>
+    </footer>
+
+    <script>
+      // ── Price localisation ───────────────────────────────
+      (function () {
+        const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+        const isUAE = tz === "Asia/Dubai" || tz === "Asia/Muscat";
+        const isIndia = tz === "Asia/Kolkata" || tz === "Asia/Calcutta";
+        const price    = isUAE ? "AED 300"    : isIndia ? "INR 6,000"    : "USD 100";
+        const stdPrice = isUAE ? "AED 500"    : isIndia ? "INR 10,000"   : "USD 150";
+        document.querySelectorAll(".price-display").forEach((el) => {
+          el.textContent = price;
+        });
+        const noteEl = document.getElementById("intro-pricing-note");
+        if (noteEl) noteEl.textContent = "Early cohort pricing: " + price + ". Increases to " + stdPrice + " after the first few batches.";
+      })();
+    </script>
+
+    <script>
+      // ── Time localisation (GST = UTC+4) ──────────────────────
+      (function () {
+        function fmtTime(utcHour, utcMin) {
+          const d = new Date();
+          d.setUTCHours(utcHour, utcMin, 0, 0);
+          return d.toLocaleTimeString([], { hour: "numeric", minute: "2-digit", hour12: true });
+        }
+
+        const tzAbbr = (() => {
+          try {
+            return new Intl.DateTimeFormat([], { timeZoneName: "short" })
+              .formatToParts(new Date())
+              .find((p) => p.type === "timeZoneName").value;
+          } catch (e) { return ""; }
+        })();
+
+        // GST times converted to UTC: 8:30am→04:30, 12:00pm→08:00, 1:30pm→09:30, 4:30pm→12:30
+        const t830  = fmtTime(4, 30);
+        const t1200 = fmtTime(8, 0);
+        const t130  = fmtTime(9, 30);
+        const t430  = fmtTime(12, 30);
+        const suffix = tzAbbr ? " (" + tzAbbr + ")" : "";
+
+        const heroEl = document.getElementById("time-hero");
+        if (heroEl) heroEl.textContent = "⏱ " + t830 + " to " + t430 + suffix;
+
+        const schedEl = document.getElementById("time-schedule");
+        if (schedEl) schedEl.textContent = "Morning: " + t830 + "–" + t1200 + " · Evening: " + t130 + "–" + t430 + suffix;
+
+        const ctaEl = document.getElementById("time-cta");
+        if (ctaEl) ctaEl.textContent = t830 + "–" + t430 + suffix;
+      })();
+    </script>
+
+    <script>
+      // Scroll-reveal animation
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.style.opacity = "1";
+              e.target.style.transform = "translateY(0)";
+              observer.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.08 },
+      );
+      document
+        .querySelectorAll(
+          ".outcome-item, .day-card, .audience-card, .faq-item, .build-card",
+        )
+        .forEach((el) => {
+          el.style.opacity = "0";
+          el.style.transform = "translateY(20px)";
+          el.style.transition = "opacity 0.5s ease, transform 0.5s ease";
+          observer.observe(el);
+        });
+    </script>
+  </body>
+</html>
